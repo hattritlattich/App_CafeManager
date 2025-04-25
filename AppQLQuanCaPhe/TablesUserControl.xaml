@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="AppQLQuanCaPhe.TablesUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:AppQLQuanCaPhe"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#EDC7B7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <materialDesign:Card Margin="15" Background="#EEE2DC">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="Thông tin bàn" FontSize="18" FontWeight="Bold" Margin="5 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <TextBlock Text="Mã bàn:" FontSize="12" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                        <TextBox x:Name="tbmaBan"  FontSize="12" Margin="70 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Mã tự động" Width="140"  IsEnabled="False"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="Tên bàn:" FontSize="12"  Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                        <TextBox x:Name="txtTenBan"  FontSize="12" Margin="70 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"  TextWrapping="Wrap" Width="140"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Button x:Name="btnThem"
+                            Width="170"
+                            Content="Thêm"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                            Background="#AC3B61"
+                            Foreground="#EDC7B7"
+                            HorizontalAlignment="Center"  
+                            VerticalAlignment="Bottom" Click="btnThem_Click"
+                        />
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Button x:Name="btnCapNhat"
+                            Width="170"
+                            Content="Cập nhật"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                            Background="#AC3B61"
+                            Foreground="#EDC7B7"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnCapNhat_Click"
+                         />
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Button x:Name="btnXoa"
+                            Width="170"
+                            Content="Xóa"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                            Background="#AC3B61"
+                            Foreground="#EDC7B7"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top" Click="btnXoa_Click"
+                         />
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Button x:Name="btnKhoiTao"
+                        Width="170"
+                        Content="Khởi tạo"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                        Background="#AC3B61"
+                        Foreground="#EDC7B7"
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnKhoiTao_Click"
+                     />
+                </Grid>
+                <TextBlock x:Name="lbID" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,75,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="-1.142,0.517" Height="22" Grid.RowSpan="2" Width="49">
+                </TextBlock>
+
+            </Grid>
+        </materialDesign:Card>
+        <Grid Grid.Column="1">
+            <materialDesign:Card Margin="0 15 15 15" Background="#EEE2DC">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="9*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="328*"/>
+                            <ColumnDefinition Width="297*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0"></Grid>
+                        <TextBlock Text="Bàn" FontSize="25" FontWeight="Bold" Margin="5,0,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3"></TextBlock>
+                        <Grid Grid.Column="1">
+                            <TextBox x:Name="tbTimKiem"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                materialDesign:HintAssist.Hint="Tìm kiếm tên bàn"
+                                Margin="0 0 10 0"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="200" TextChanged="tbTimKiem_TextChanged" />
+                        </Grid>
+
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <DataGrid  LoadingRow="detailDataGrid_LoadingRow" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="All" x:Name="dgvBan" SelectionChanged="dgvBan_SelectionChanged">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn x:Name="MaBan" Header="Mã bàn" Binding="{Binding MaBan}" Width="200" />
+                                    <DataGridTextColumn x:Name="TenBan" Header="Tên bàn" Binding="{Binding TenBan}" Width="200"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+
+
+
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</UserControl>

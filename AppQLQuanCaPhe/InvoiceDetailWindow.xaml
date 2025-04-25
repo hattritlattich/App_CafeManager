@@ -1,0 +1,65 @@
+﻿<Window x:Class="AppQLQuanCaPhe.InvoiceDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chi Tiết Hóa Đơn" Height="650" Width="600" WindowStyle="None" AllowsTransparency="True">
+    
+    <Grid Background="#EEE2DC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="Chi Tiết Hóa Đơn" FontSize="24" FontWeight="Bold" Margin="10" HorizontalAlignment="Center" Grid.Row="0"/>
+
+        <StackPanel Grid.Row="1" Margin="10">
+            <TextBlock Text="Mã Hóa Đơn:" FontWeight="Bold"/>
+            <TextBox x:Name="TextMaHoaDon" IsReadOnly="True" Margin="5"/>
+
+            <TextBlock Text="Tên Bàn:" FontWeight="Bold" Margin="0,10,0,0"/>
+            <TextBox x:Name="TextTenBan" IsReadOnly="True" Margin="5"/>
+        </StackPanel>
+
+        <!-- DataGrid để hiển thị chi tiết hóa đơn -->
+        <DataGrid x:Name="detailDataGrid" Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10" IsReadOnly="True"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tên Sản Phẩm" Binding="{Binding TenSanPham}" Width="2*"/>
+                <DataGridTextColumn Header="Size" Binding="{Binding Size}" Width="*"/>
+                <DataGridTextColumn Header="Số Lượng" Binding="{Binding SoLuong}" Width="1.5*"/>
+                <DataGridTextColumn Header="Giá" Binding="{Binding Gia, StringFormat=N0}" Width="*"/>
+                <DataGridTextColumn Header="Tổng" Binding="{Binding Tong, StringFormat=N0}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Tổng số lượng món -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Tổng số lượng món:" FontSize="16" VerticalAlignment="Center"/>
+            <TextBlock x:Name="totalQuantityTextBlock" FontSize="16" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#AC3B61"/>
+        </StackPanel>
+
+        <!-- Tổng tiền hàng -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Tổng tiền hàng:" FontSize="16" VerticalAlignment="Center"/>
+            <TextBlock x:Name="totalAmountTextBlock" FontSize="16" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#AC3B61"/>
+        </StackPanel>
+
+        <!-- Tổng tiền sau giảm giá -->
+        <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="10">
+            <TextBlock Text="Tổng tiền sau giảm giá:" FontSize="16" VerticalAlignment="Center"/>
+            <TextBlock x:Name="discountedAmountTextBlock" FontSize="16" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#AC3B61"/>
+        </StackPanel>
+        <Grid Grid.Row="6" HorizontalAlignment="Right" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Hủy đơn" Background="#AC3B61" Foreground="#EDC7B7" Click="HuyDon_Click" Margin="0,0,5,0"/>
+                <Button Content="Quay lại" Background="#AC3B61" Foreground="#EDC7B7" Click="BackButton_Click"/>
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+</Window>
+

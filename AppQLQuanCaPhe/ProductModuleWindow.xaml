@@ -1,0 +1,150 @@
+﻿<Window x:Class="AppQLQuanCaPhe.ProductModuleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:AppQLQuanCaPhe"
+        mc:Ignorable="d"
+        Title="ProductModuleWindow" Height="450" Width="800" WindowStyle="None"  ResizeMode="NoResize">
+    <Grid>
+        <Border BorderBrush="Black"  BorderThickness="0.5" CornerRadius="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="8*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Background="#AC3B61" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Thông tin sản phẩm" FontSize="20" FontWeight="Bold" Margin="309,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#EDC7B7"></TextBlock>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid x:Name="tbID" Grid.Row="0">
+                            <TextBlock Text="Mã sản phẩm:" FontSize="15" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                            <TextBox x:Name="tbID1"  FontSize="15" Margin="120 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Mã tự động" Width="150"  IsEnabled="False"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <TextBlock Text="Tên sản phẩm:" FontSize="15"  Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                            <TextBox x:Name="tbtsp"  FontSize="15" Margin="120 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"  TextWrapping="Wrap" Width="150"/>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <ComboBox x:Name="cblsp"
+                            materialDesign:HintAssist.Hint="Loại sản phẩm" HorizontalAlignment="Left" Height="35" Margin="120,0,0,0" Width="150"
+                        >
+                            </ComboBox>
+                            <TextBlock Text="Loại sản phẩm:" FontSize="15" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <ComboBox x:Name="cbkt"
+                            materialDesign:HintAssist.Hint="" HorizontalAlignment="Left" Height="35" Margin="120,0,0,0" Width="150"
+                            >
+                                <ComboBoxItem
+                                    Content="No Size" />
+                                <ComboBoxItem
+                                    Content="S" />
+                                <ComboBoxItem
+                                    Content="M" />
+                                <ComboBoxItem
+                                     Content="L" />
+                            </ComboBox>
+                            <TextBlock Text="Kích thước:" FontSize="15" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="4">
+                            <TextBox x:Name="cbgia"  FontSize="15" Margin="120 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150"/>
+                            <TextBlock Text="Giá bán:" FontSize="15"  Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="5">
+
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="1.5*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Button Name="btnTaiLen"
+                            Width="144"
+                            Content="Tải lên"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                            Background="#AC3B61"
+                            Foreground="#EDC7B7"
+                            HorizontalAlignment="Center" Margin="0,170,0,100" Click="btnTaiLen_Click"
+                        />
+                            <TextBlock x:Name="lbID" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0,75,0,0" Grid.Row="3" VerticalAlignment="Top" RenderTransformOrigin="-1.142,0.517" Height="22" Grid.RowSpan="2" Width="49">
+                            </TextBlock>
+                            <Image x:Name="txtimg"  Height="150" Width="150" Margin="125 25 125 150" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/icons8-image-96.png">
+                                <Image.OpacityMask>
+                                    <ImageBrush ImageSource="/icons8-image-96.png" Stretch="UniformToFill"/>
+                                </Image.OpacityMask>
+                            </Image>
+                        </Grid>
+                        <Grid Margin="-76,347,0,0" Grid.RowSpan="2">
+                            <Button x:Name="btnCapNhat"
+                                Width="145"
+                                Content="Cập Nhật"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                                Background="#AC3B61"
+                                Foreground="#EDC7B7"
+                                HorizontalAlignment="Left" Margin="0,2,170,2"
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btnCapNhat_Click"
+                            />
+                            <Button x:Name="btnXoa"
+                                Width="145"
+                                Content="Xóa"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                                Background="#AC3B61"
+                                Foreground="#EDC7B7"
+                                HorizontalAlignment="Right" Margin="0,2,170,2"
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btnXoa_Click"
+                            />
+                            <Button x:Name="btnLuu"
+                                Width="145"
+                                Content="Lưu"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                                Background="#AC3B61"
+                                Foreground="#EDC7B7"
+                                HorizontalAlignment="Right" Margin="0,2,170,2"
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btnLuu_Click"
+                            />
+                            <Button x:Name="btnThoat"
+                                Width="145"
+                                Content="Hủy"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                                ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                                Background="#AC3B61"
+                                Foreground="#EDC7B7"
+                                HorizontalAlignment="Right" Margin="0,2,10,2" Click="btnThoat_Click"
+                            />
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
